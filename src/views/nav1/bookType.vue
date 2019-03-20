@@ -4,7 +4,7 @@
     <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
       <el-form :inline="true" :model="filters">
         <el-form-item>
-          <el-input v-model="filters.bt_type" placeholder="图书分类"></el-input>
+          <el-input v-model="filters.bt_type" placeholder="输入图书类别"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-on:click="getPages">查询</el-button>
@@ -25,7 +25,7 @@
     >
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column label="编号" prop="bt_id" width="80"></el-table-column>
-      <el-table-column prop="bt_type" label="图书类别" width="120" sortable></el-table-column>
+      <el-table-column prop="bt_type" label="图书类别" width="120" :sortable='true'></el-table-column>
       <el-table-column label="操作" width="150">
         <template scope="scope">
           <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -85,15 +85,15 @@ import {
   removeUser,
   batchRemoveUser,
   editUser,
-  addUser
+  addBookType
 } from "../../api/api";
 
 export default {
   data() {
     return {
       filters: {
-		bt_id:"",
-        bt_type: ""
+		    bt_id:"",
+        bt_type:""
       },
       pageSize: 10,
       lists: [],
@@ -141,7 +141,8 @@ export default {
     getPages: function() {
       let para = {
 		page: this.page,
-		pageSize: this.pageSize
+    pageSize: this.pageSize,
+    bt_type: this.filters.bt_type
         //bt_type: this.filters.bt_type
       };
       this.listLoading = true;
@@ -221,16 +222,23 @@ export default {
             this.addLoading = true;
             //NProgress.start();
             let para = Object.assign({}, this.addForm);
-            addUser(para).then(res => {
+            addBookType(para).then(res => {
               this.addLoading = false;
               //NProgress.done();
+              if(res.data.code==200){
               this.$message({
-                message: "提交成功",
+                message: res.data.msg,
                 type: "success"
-              });
+              });          
               this.$refs["addForm"].resetFields();
               this.addFormVisible = false;
               this.getPages();
+              }else{
+                this.$message({
+                message: res.data.msg,
+                type: "error"
+              }); 
+              }
             });
           });
         }
@@ -242,6 +250,7 @@ export default {
     //批量删除
     batchRemove: function() {
       var ids = this.sels.map(item => item.id).toString();
+      console.log(ids);
       this.$confirm("确认删除选中记录吗？", "提示", {
         type: "warning"
       })

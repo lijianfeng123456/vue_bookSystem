@@ -1,6 +1,6 @@
  import axios from 'axios';
 
- export const base = 'http://10.4.0.142:8080/bookSystem';
+ export const base = 'http://192.168.31.169:8080/bookSystem';
  axios.defaults.headers = {
     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
   }
@@ -16,4 +16,4 @@
 
 // export const editUser = params => { return axios.get(`${base}/user/edit`, { params: params }); };
 
-// export const addUser = params => { return axios.get(`${base}/user/add`, { params: params }); };
+ export const addBookType = params => { return axios.get(`${base}/addBookType`, { params: params }); };
