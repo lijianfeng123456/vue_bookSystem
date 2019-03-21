@@ -36,7 +36,7 @@
                             <div class="grid-content grid-con-1">
                                 <i class="el-icon-lx-people grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5555</div>
+                                    <div class="grid-num">613</div>
                                     <div>会员访问总量</div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             <div class="grid-content grid-con-2">
                                 <i class="el-icon-lx-notice grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
+                                    <div class="grid-num">3</div>
                                     <div>系统消息</div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                             <div class="grid-content grid-con-3">
                                 <i class="el-icon-lx-goods grid-con-icon"></i>
                                 <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
+                                    <div class="grid-num">26</div>
                                     <div>图书总量</div>
                                 </div>
                             </div>
@@ -93,13 +93,14 @@
         </el-row>
         <el-row :gutter="20">
             <el-col :span="12">
-                <el-card shadow="hover">
+                <el-card shadow="hover"><a href="#"style="float:right;text-decoration:none;">更多></a>
                     <schart ref="bar" class="schart" canvasId="bar" :data="data" type="bar" :options="options"></schart>
+                    
                 </el-card>
             </el-col>
             <el-col :span="12">
-                <el-card shadow="hover">
-                    <schart ref="line" class="schart" canvasId="line" :data="data" type="line" :options="options2"></schart>
+                <el-card shadow="hover"><a href="#"style="float:right;text-decoration:none;">更多></a>
+                    <schart ref="line" class="schart" canvasId="line" :data="data2" type="line" :options="options2"></schart>
                 </el-card>
             </el-col>
         </el-row>
@@ -119,67 +120,96 @@
 				user:"",//JSON.parse(sessionStorage.getItem('user')),//localStorage.getItem('sysUserName'),
                 userImg:"",
                 todoList: [{
-                        title: '我是谁',
+                        title: '新增图书',
                         status: false,
                     },
                     {
-                        title: '我在哪儿',
+                        title: '查看图书数量',
                         status: false,
                     },
                     {
-                        title: '我不想做毕设',
+                        title: '会员等级管理',
                         status: true,
                     }, {
-                        title: '我想回家',
+                        title: '查看统计管理',
                         status: true,
                     },
                     {
-                        title: '我要玩',
+                        title: '新增图书分类',
                         status: true,
                     },
                     {
-                        title: '做个屁',
+                        title: '推送查看',
                         status: true,
                     }
                 ],
                 data: [{
-                        name: '2018/09/04',
-                        value: 1083
+                        name: '2019/09/04',
+                        value: 100
                     },
                     {
                         name: '2018/09/05',
-                        value: 941
+                        value: 60
                     },
                     {
                         name: '2018/09/06',
-                        value: 1139
+                        value: 80
                     },
                     {
                         name: '2018/09/07',
-                        value: 816
+                        value: 82
                     },
                     {
                         name: '2018/09/08',
-                        value: 327
+                        value: 120
                     },
                     {
                         name: '2018/09/09',
-                        value: 228
+                        value: 100
                     },
                     {
                         name: '2018/09/10',
-                        value: 1065
+                        value: 165
+                    }
+                ],
+                data2: [{
+                        name: '2019/09/04',
+                        value: 21
+                    },
+                    {
+                        name: '2018/09/05',
+                        value: 20
+                    },
+                    {
+                        name: '2018/09/06',
+                        value: 20
+                    },
+                    {
+                        name: '2018/09/07',
+                        value: 32
+                    },
+                    {
+                        name: '2018/09/08',
+                        value: 10
+                    },
+                    {
+                        name: '2018/09/09',
+                        value: 20
+                    },
+                    {
+                        name: '2018/09/10',
+                        value: 12
                     }
                 ],
                 options: {
-                    title: '最近七日每天会员访问量',
+                    title: '最近一周会员访问情况',
                     showValue: true,
                     fillColor: 'rgb(100, 140, 240)',
                     bottomPadding: 30,
                     topPadding: 30
                 },
                 options2: {
-                    title: '最近七日用户借阅趋势',
+                    title: '最近一周会员借阅情况',
                     fillColor: '#FC6FA1',
                     axisColor: '#008ACD',
                     contentColor: '#EEEEEE',
@@ -257,8 +287,8 @@
     var user = sessionStorage.getItem("user");
     if (user) {
       user = JSON.parse(user);
-      this.ip=user.mg_ip||"第一次登陆";
-      this.time=user.mg_time ||"第一次登陆";
+      this.ip=user.mg_ip||"";
+      this.time=user.mg_time ||"";
       this.user = user.mg_user || "";
       this.userImg = `${base}/img?url=user` || "";
     }

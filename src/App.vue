@@ -1,9 +1,28 @@
 <template>
 	<div id="app">
+		<vue-particles
+        color="#47CD88"
+        :particleOpacity="0.8"
+        :particlesNumber="60"
+        shapeType="star"
+        :particleSize="4"
+        linesColor="#47CD88"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.5"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push"
+		style="position:fixed; left:0px; bottom:0px; width:100%; height:100%;"
+      ></vue-particles> 
 		<transition name="fade"
 		            mode="out-in">
 			<router-view></router-view>
 		</transition>
+		
 	</div>
 </template>
 

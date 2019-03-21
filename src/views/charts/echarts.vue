@@ -37,16 +37,16 @@
             drawColumnChart() {
                 this.chartColumn = echarts.init(document.getElementById('chartColumn'));
                 this.chartColumn.setOption({
-                  title: { text: 'Column Chart' },
+                  title: { text: '最近一周借阅数量最高的图书类别' },
                   tooltip: {},
                   xAxis: {
-                      data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                      data: ["文学", "历史", "工业", "科学", "美术", "地理","政治"]
                   },
                   yAxis: {},
                   series: [{
                       name: '销量',
                       type: 'bar',
-                      data: [5, 20, 36, 10, 10, 20]
+                      data: [125, 40, 66, 80, 100, 90,130]
                     }]
                 });
             },
@@ -54,8 +54,8 @@
                 this.chartBar = echarts.init(document.getElementById('chartBar'));
                 this.chartBar.setOption({
                     title: {
-                        text: 'Bar Chart',
-                        subtext: '数据来自网络'
+                        text: '今日昨日借阅数量最高的图书类别',
+                        subtext: '数据来自管理系统统计'
                     },
                     tooltip: {
                         trigger: 'axis',
@@ -64,7 +64,7 @@
                         }
                     },
                     legend: {
-                        data: ['2011年', '2012年']
+                        data: ['昨天', '今天']
                     },
                     grid: {
                         left: '3%',
@@ -78,18 +78,18 @@
                     },
                     yAxis: {
                         type: 'category',
-                        data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+                        data: ['美妆', '综合', '工业', '科学', '历史', '总借阅量']
                     },
                     series: [
                         {
-                            name: '2011年',
+                            name: '昨天',
                             type: 'bar',
-                            data: [18203, 23489, 29034, 104970, 131744, 630230]
+                            data: [18, 23, 29, 10, 13, 63]
                         },
                         {
-                            name: '2012年',
+                            name: '今天',
                             type: 'bar',
-                            data: [19325, 23438, 31000, 121594, 134141, 681807]
+                            data: [19, 20, 31, 12, 13, 68]
                         }
                     ]
                 });
@@ -98,13 +98,13 @@
                 this.chartLine = echarts.init(document.getElementById('chartLine'));
                 this.chartLine.setOption({
                     title: {
-                        text: 'Line Chart'
+                        text: '上周访问情况'
                     },
                     tooltip: {
                         trigger: 'axis'
                     },
                     legend: {
-                        data: ['邮件营销', '联盟广告', '搜索引擎']
+                        data: ['游客', '会员', '管理员']
                     },
                     grid: {
                         left: '3%',
@@ -122,22 +122,22 @@
                     },
                     series: [
                         {
-                            name: '邮件营销',
+                            name: '游客',
                             type: 'line',
                             stack: '总量',
-                            data: [120, 132, 101, 134, 90, 230, 210]
+                            data: [12, 13, 10, 14, 90, 20, 21]
                         },
                         {
-                            name: '联盟广告',
+                            name: '管理员',
                             type: 'line',
                             stack: '总量',
-                            data: [220, 182, 191, 234, 290, 330, 310]
+                            data: [20, 18, 19, 23, 29, 33, 31]
                         },
                         {
-                            name: '搜索引擎',
+                            name: '会员',
                             type: 'line',
                             stack: '总量',
-                            data: [820, 932, 901, 934, 1290, 1330, 1320]
+                            data: [80, 92, 90, 134, 190, 150, 60]
                         }
                     ]
                 });
@@ -146,8 +146,8 @@
                 this.chartPie = echarts.init(document.getElementById('chartPie'));
                 this.chartPie.setOption({
                     title: {
-                        text: 'Pie Chart',
-                        subtext: '纯属虚构',
+                        text: '最近一周借阅数量最高的图书',
+                        subtext: '真实数据',
                         x: 'center'
                     },
                     tooltip: {
@@ -157,20 +157,20 @@
                     legend: {
                         orient: 'vertical',
                         left: 'left',
-                        data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                        data: ['《大学英语》', '《家》', '《天龙八部》', '《数据结构》', '《计算机网络》']
                     },
                     series: [
                         {
-                            name: '访问来源',
+                            name: '借阅情况',
                             type: 'pie',
                             radius: '55%',
                             center: ['50%', '60%'],
                             data: [
-                                { value: 335, name: '直接访问' },
-                                { value: 310, name: '邮件营销' },
-                                { value: 234, name: '联盟广告' },
-                                { value: 135, name: '视频广告' },
-                                { value: 1548, name: '搜索引擎' }
+                                { value: 33, name: '《大学英语》' },
+                                { value: 31, name: '《家》' },
+                                { value: 23, name: '《天龙八部》' },
+                                { value: 13, name: '《数据结构》' },
+                                { value: 54, name: '《计算机网络》' }
                             ],
                             itemStyle: {
                                 emphasis: {

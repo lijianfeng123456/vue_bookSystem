@@ -28,7 +28,7 @@ let routes = [{
     {
         path: '/',
         component: Home,
-        name: '系统主页',
+        name: '系统管理',
         iconCls: 'fa fa-home fa-lg',
         leaf: true,
         children: [{
@@ -41,7 +41,7 @@ let routes = [{
         path: '/',
         component: Home,
         name: '图书管理',
-        iconCls: 'el-icon-message', //图标样式class
+        iconCls: 'fa fa-book fa-lg', //图标样式class
         children: [
             //{ path: '/main', component: Main, name: '主页', hidden: true },
             {
@@ -65,7 +65,7 @@ let routes = [{
         path: '/',
         component: Home,
         name: '会员管理',
-        iconCls: 'fa fa-id-card-o',
+        iconCls: 'fa fa-id-badge fa-lg',
         children: [{
                 path: '/page4',
                 component: Page4,
@@ -74,7 +74,7 @@ let routes = [{
             {
                 path: '/page5',
                 component: Page5,
-                name: '等级详情'
+                name: '支付管理'
             },
             {
                 path: '/level',
@@ -87,24 +87,24 @@ let routes = [{
     {
         path: '/',
         component: Home,
-        name: '统计管理',
-        iconCls: 'fa fa-address-card',
+        name: '推送管理',
+        iconCls: 'fa fa-bell fa-lg',
         //leaf: true,//只有一个节点
         children: [{
             path: '/page6',
             component: Page6,
-            name: '统计管理'
+            name: '新书推送'
         }]
     },
     {
         path: '/',
         component: Home,
-        name: 'Charts',
-        iconCls: 'fa fa-bar-chart',
+        name: '统计管理',
+        iconCls: 'fa fa-bar-chart fa-lg',
         children: [{
             path: '/echarts',
             component: echarts,
-            name: 'echarts'
+            name: '统计详情'
         }]
     },
     {

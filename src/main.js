@@ -1,4 +1,4 @@
-import babelpolyfill from 'babel-polyfill'
+//import babelpolyfill from 'babel-polyfill'
 import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
@@ -14,6 +14,8 @@ import routes from './routes'
 //Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
 import axios from 'axios'
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 Vue.use(ElementUI)
@@ -30,9 +32,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   //NProgress.start();
-  if (to.path == '/login') {
-    sessionStorage.removeItem('user');
-  }
+  // if (to.path == '/login') {
+  //   sessionStorage.removeItem('user');
+  // }
   let user = JSON.parse(sessionStorage.getItem('user'));
   if (!user && to.path != '/login') {
     next({ path: '/login' })
