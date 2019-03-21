@@ -17,16 +17,17 @@
 
     <!--列表-->
     <el-table
+      :inline="true"
       :data="lists"
       highlight-current-row
       v-loading="listLoading"
       @selection-change="selsChange"
-      style="width: 100%;"
+     
     >
-      <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column label="编号" prop="bt_id" width="80"></el-table-column>
-      <el-table-column prop="bt_type" label="图书类别" width="120" :sortable='true'></el-table-column>
-      <el-table-column label="操作" width="150">
+      <el-table-column type="selection"  ></el-table-column>
+      <el-table-column label="编号" prop="bt_id" ></el-table-column>
+      <el-table-column prop="bt_type" label="图书类别"  :sortable='true'></el-table-column>
+      <el-table-column label="操作" >
         <template scope="scope">
           <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
           <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>

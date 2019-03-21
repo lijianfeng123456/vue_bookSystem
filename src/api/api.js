@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 //跨域请求到服务器
-export const base = 'http://10.4.0.142:8080/bookSystem';
+export const base = 'http://192.168.31.169:8080/bookSystem';
 //设置axios请求头
 axios.defaults.headers = {
-  "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+  "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8;Access-Control-Allow-Headers,"
 }
 //一.系统api
 export const requestLogin = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
