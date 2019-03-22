@@ -84,7 +84,7 @@
 import {
   getBookTypeList,
   removeUser,
-  batchRemoveUser,
+  batchRemoveBookType,
   editUser,
   addBookType
 } from "../../api/api";
@@ -250,8 +250,14 @@ export default {
     },
     //批量删除
     batchRemove: function() {
-      var ids = this.sels.map(item => item.id).toString();
-      console.log(ids);
+      var s=JSON.stringify(this.sels);
+      console.log(s);
+      var b=JSON.parse(s);
+      var ids = b.map(item => item.bt_id).toString();
+      console.log("sss"+JSON.stringify(this.sels));
+      console.log("ids"+ids);
+      console.log("miao"+b[0].bt_type);
+      console.log(b);
       this.$confirm("确认删除选中记录吗？", "提示", {
         type: "warning"
       })
@@ -259,7 +265,7 @@ export default {
           this.listLoading = true;
           //NProgress.start();
           let para = { ids: ids };
-          batchRemoveUser(para).then(res => {
+          batchRemoveBookType(para).then(res => {
             this.listLoading = false;
             //NProgress.done();
             this.$message({
