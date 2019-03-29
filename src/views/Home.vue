@@ -186,7 +186,7 @@ export default {
     if (user) {
       user = JSON.parse(user);
       this.user = user.mg_user || "";
-      this.userImg = `${base}/img?url=user` || "";
+      this.userImg = `${base}/img?url=user.png` || "";
     }
   }
 };

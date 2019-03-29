@@ -290,7 +290,7 @@
       this.ip=user.mg_ip||"";
       this.time=user.mg_time ||"";
       this.user = user.mg_user || "";
-      this.userImg = `${base}/img?url=user` || "";
+      this.userImg = `${base}/img?url=user.png` || "";
     }
   }
     }

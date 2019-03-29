@@ -30,7 +30,7 @@ let routes = [{
         component: Home,
         name: '系统管理',
         iconCls: 'fa fa-home fa-lg',
-        leaf: true,
+        //leaf: true,
         children: [{
             path: '/Main',
             component: Main,
