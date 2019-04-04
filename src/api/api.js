@@ -14,12 +14,14 @@ export const modifyPassword = params => { return axios.post(`${base}/modifyPassw
 
 //二.图书管理
 //1.图书分类
+export const allBookType = params => { return axios.get(`${base}/allBookType`, { params: params }); };
 export const getBookTypeList = params => { return axios.get(`${base}/bookTypeList`, { params: params }); };
 export const removeBookType = params => { return axios.get(`${base}/removeBookType`, { params: params }); };
 export const batchRemoveBookType = params => { return axios.get(`${base}/batchRemoveBookType`, { params: params }); };
 export const editBookType = params => { return axios.get(`${base}/BookType`, { params: params }); };
 export const addBookType = params => { return axios.get(`${base}/addBookType`, { params: params }); };
 //2.图书列表
+export const upload = params => { return axios.get(`${base}/upload`, { params: params }); };
 export const addBook = params => { return axios.get(`${base}/addBook`, { params: params }); };
 export const getBookList = params => { return axios.get(`${base}/getBookList`, { params: params }); };
 export const removeBook = params => { return axios.get(`${base}/removeBook`, { params: params }); };

@@ -83,9 +83,9 @@
 //import NProgress from 'nprogress'
 import {
   getBookTypeList,
-  removeUser,
+  removeBookType,
   batchRemoveBookType,
-  editUser,
+  editBookType,
   addBookType
 } from "../../api/api";
 
@@ -168,7 +168,7 @@ export default {
           this.listLoading = true;
           //NProgress.start();
           let para = { id: row.id };
-          removeUser(para).then(res => {
+          removeBookType(para).then(res => {
             this.listLoading = false;
             //NProgress.done();
             this.$message({
@@ -200,7 +200,7 @@ export default {
             this.editLoading = true;
             //NProgress.start();
             let para = Object.assign({}, this.editForm);
-            editUser(para).then(res => {
+            editBookType(para).then(res => {
               this.editLoading = false;
               //NProgress.done();
               this.$message({
