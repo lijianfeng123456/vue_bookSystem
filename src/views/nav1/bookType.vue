@@ -4,7 +4,7 @@
     <el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
       <el-form :inline="true" :model="filters">
         <el-form-item>
-          <el-input v-model="filters.bt_type" placeholder="输入图书类别"></el-input>
+          <el-input v-model="filters.bt_type" placeholder="输入图书类别" clearable :oninput="findBookInfo"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-on:click="getPages">查询</el-button>
@@ -128,6 +128,12 @@ export default {
         bt_type: ""
       }
     };
+  },
+  computed: {
+    findBookInfo: function() {
+      if(this.filters.bt_type=="")
+      return this.getPages();
+    }
   },
   methods: {
 	handleSizeChange(val){
@@ -268,10 +274,19 @@ export default {
           batchRemoveBookType(para).then(res => {
             this.listLoading = false;
             //NProgress.done();
+            if(res.data.code==200){
             this.$message({
-              message: "删除成功",
-              type: "success"
+              message: res.data.msg,
+              type: "success",
+              duration: 600
             });
+            }else {
+             this.$message({
+              message: res.data.msg,
+              type: "error",
+              duration: 600
+            }); 
+            }
             this.getPages();
           });
         })

@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 //跨域请求到服务器
-export const base = 'http://10.4.0.142:8080/bookSystem';
+ export const base = 'http://172.21.81.100:8080/bookSystem';
+//export const base = 'http://10.4.0.142:8080/bookSystem';
 //export const base = 'http://192.168.31.169:8080/bookSystem';
 //设置axios请求头
 axios.defaults.headers = {
@@ -21,12 +22,12 @@ export const batchRemoveBookType = params => { return axios.get(`${base}/batchRe
 export const editBookType = params => { return axios.get(`${base}/BookType`, { params: params }); };
 export const addBookType = params => { return axios.get(`${base}/addBookType`, { params: params }); };
 //2.图书列表
-export const upload = params => { return axios.get(`${base}/upload`, { params: params }); };
+//export const upload = params => { return axios.get(`${base}/upload`, { params: params }); };
 export const addBook = params => { return axios.get(`${base}/addBook`, { params: params }); };
 export const getBookList = params => { return axios.get(`${base}/getBookList`, { params: params }); };
 export const removeBook = params => { return axios.get(`${base}/removeBook`, { params: params }); };
 export const batchRemoveBook = params => { return axios.get(`${base}/batchRemoveBook`, { params: params }); };
-export const editBook = params => { return axios.get(`${base}/BookType`, { params: params }); };
+export const editBook = params => { return axios.get(`${base}/editBook`, { params: params }); };
 
 //三.会员管理
 //1.会员详情

@@ -17,11 +17,11 @@
     <el-form-item label="图书出版" prop="bi_publish">
       <el-input v-model="ruleForm.bi_publish" placeholder="请输入图书出版社"></el-input>
     </el-form-item>
-    <el-form-item label="图书分类" prop="bt_id">
+    <el-form-item label="图书分类" prop="bt_type">
       <div v-if="book_type!=null">
         <el-select
-          @change="selectBookType"
-          v-model="ruleForm.bt_id"
+         
+          v-model="ruleForm.bt_type"
           placeholder="请选择图书类型"
           style="width:100%;"
           clearable
@@ -31,7 +31,7 @@
             v-for="item in book_type"
             :key="item.bt_id"
             :label="item.bt_type"
-            :value="item.bt_id"
+            :value="item.bt_type"
           ></el-option>
         </el-select>
       </div>
@@ -110,7 +110,7 @@
       </el-upload>
 
       <el-dialog :visible.sync="dialogVisible" title="亲亲❤您所上传的封面如下：" style="text-align:center;">
-        <img width="100%" alt v-model="ruleForm.bi_img" :src="dialogImageUrl">
+        <img width="100%" alt  :src="dialogImageUrl" :v-model="ruleForm.bi_img">
       </el-dialog>
     </el-form-item>
     <el-form-item label="图书简介" prop="bi_abstract">
@@ -134,7 +134,7 @@
 </style>
 
 <script>
-import { base, allBookType, addBook, upload } from "../../api/api";
+import { base, allBookType, addBook } from "../../api/api";
 export default {
   data() {
     return {
@@ -148,7 +148,7 @@ export default {
         bi_pubDate: "",
         bi_putTime: "",
         bi_pubTime: 0,
-        bt_id: "",
+        bt_type: "",
         bi_il: "",
         bi_unitPrice: 0,
         bi_num: "",
@@ -224,9 +224,8 @@ export default {
             trigger: "blur"
           }
         ],
-        bt_id: [
+        bt_type: [
           {
-            type: "number",
             required: true,
             message: "请选择图书的类别",
             trigger: "blur"
@@ -282,17 +281,19 @@ export default {
     this.ruleForm.bi_putTime=val;
     console.log("bi_putTime"+this.ruleForm.bi_putTime);
     },
-    selectBookType(vId) {
-      let obj = {};
-      obj = this.book_type.find(item => {
-        //这里的book_type就是上面遍历的数据源
-        return item.bt_id === vId; //筛选出匹配数据
-      });
-      this.ruleForm.bt_id = vId;
-      //console.log(obj.bt_type); //这边的name就是对应label的
-      console.log(obj.bt_id);
-      console.log(vId);
-    },
+    // selectBookType(vId) {
+    //   console.log("vid="+vId)
+    //  let obj = {};
+    //   obj = this.book_type.find(item => {
+    //     //这里的book_type就是上面遍历的数据源
+    //     return item.bt_id === vId; //筛选出匹配数据
+        
+    //   });
+    //   this.ruleForm.bt_type=obj.bt_type;
+    //   //console.log(obj.bt_type); //这边的name就是对应label的
+    //   console.log(obj.bt_type);
+    //   console.log(vId);
+    // },
     selectPush() {
       console.log(this.ruleForm.push);
     },

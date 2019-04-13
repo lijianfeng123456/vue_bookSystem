@@ -5,7 +5,7 @@ import Main from './views/Main.vue'
 import bookType from './views/nav1/bookType.vue'
 // import Form from './views/nav1/Form.vue'
 import addBook from './views/nav1/addBook.vue'
-import user from './views/nav1/user.vue'
+import bookInfo from './views/nav1/bookInfo.vue'
 import Page4 from './views/nav2/Page4.vue'
 import Page5 from './views/nav2/Page5.vue'
 import level from './views/nav2/level.vue'
@@ -55,8 +55,8 @@ let routes = [{
                 name: '新增图书'
             },
             {
-                path: '/user',
-                component: user,
+                path: '/bookInfo',
+                component: bookInfo,
                 name: '图书列表'
             },
         ]
